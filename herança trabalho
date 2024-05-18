@@ -1,56 +1,56 @@
-public class Main {
+class Main {
     public static void main(String[] args) {
-        Funcionario F = new Funcionario("Marciano", 45.0, 150);
-        Lider L = new Lider("Mariane", 15.0, 150);
-        Gerente G = new Gerente("Pedro", 89.0, 150);
+        Funcionario F = new Funcionario("Marciano", 45, 150.0, 100);
+        Lider L = new Lider("Mariane", 15, 150.0, 100);
+        Gerente G = new Gerente("Pedro", 89, 150.0, 100);
 
-        System.out.println(F.nome + ": " + F.cSalario());
-        System.out.println(L.nome + ": " + L.calcularSalario());
-        System.out.println(G.nome + ": " + G.calcularSalario());
+        System.out.println(F.getNome() + ": " + F.calcularSalario());
+        System.out.println(L.getNome() + ": " + L.calcularSalario());
+        System.out.println(G.getNome() + ": " + G.calcularSalario());
     }
 }
 
-
-Class Funcionario {
-    private String funcao;
+class Funcionario {
     private String nome;
     private int hora;
-    private double CalcHora;
+    private double calcHora;
 
-public Funcionario(String funcao, String nome, int hora, doule CalcHora) {
-        this.funcao = funcao;
+    public Funcionario(String nome, int hora, double calcHora) {
         this.nome = nome;
-        this.CalcHora = hora ;
-        this.hora = Calchora;
-        
-}
+        this.hora = hora;
+        this.calcHora = calcHora;
+    }
 
-  }
+    public String getNome() {
+        return nome;
+    }
 
     public double calcularSalario() {
-        return hora * CalcHora;
+        return hora * calcHora;
     }
 }
+
 class Lider extends Funcionario {
-    public Lider(String nome, double hora, int CalcHora) {
-        super(nome, hora, CalcHora);
+    public Lider(String nome, int hora, double calcHora) {
+        super(nome, hora, calcHora);
     }
 
+    @Override
     public double calcularSalario() {
         return super.calcularSalario() * 1.02;
     }
 }
 
 class Gerente extends Funcionario {
-    public Gerente(String nome, double hora, int CalcHora) {
-        super(nome, hora, CalcHora);
+    public Gerente(String nome, int hora, double calcHora) {
+        super(nome, hora, calcHora);
     }
 
+    @Override
     public double calcularSalario() {
         return super.calcularSalario() * 1.05;
     }
 }
-
 --------------------------------------------------
 public class Main {
     public static void main(String[] args) {
